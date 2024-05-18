@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<title>Nate's Web Services - Main</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif
+  }
+
+  body,
+  html {
+    height: 100%;
+    line-height: 1.8;
+  }
+
+  h1 {
+    font-weight: bold;
+  }
+
+  hr {
+    height: 1px;
+    background-color: darkgrey;
+    border: none;
+  }
+
+  /* header */
+  .bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("img/mac.jpg");
+    min-height: 100%;
+  }
+
+  .w3-bar .w3-button {
+    padding: 16px;
+  }
+
+  /*making numbers of list bold, and text normal*/
+
+  #process-list {
+    padding: 0px 15%;
+    font-weight: bolder;
+    font-size: 1.65em;
+  }
+
+  #process-list p {
+    font-weight: normal;
+    font-size: .69em;
+  }
+
+  #pricing-list {
+    width: 71%;
+    margin: auto;
+  }
+
+  #my-email {
+    margin-top: 100px;
+  }
+
+  #the-process {
+    background-color: darkgrey;
+    width: 100%;
+  }
+
+  .horizontal-borders {
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+  }
+</style>
+
+<body>
+
+  <!-- Navigation -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <a href="#home" class="w3-bar-item w3-button w3-wide">NATE'S WEB SERVICE</a>
+      <div class="w3-right w3-hide-small">
+
+        <a href="#services" class="w3-bar-item w3-button"><i class="fa fa-laptop"></i> SERVICES</a>
+        <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-user"></i> ABOUT</a>
+        <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
+        <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      </div>
+      <!-- mobile devices get menu icon instead of links -->
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+        onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile device sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+    style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+    <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+      <span class="w3-jumbo">Nate's Web Service</span><br>
+      <span class="w3-large">Website Creation and Hosting</span>
+      <p><a href="#services"
+          class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn
+          more</a></p>
+    </div>
+    <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+      <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <div class="w3-container" style="padding:80px 64px 0px 64px;" id="services">
+    <h2 class="w3-center">WHAT DO I OFFER?</h2>
+    <p class="w3-center w3-large">My focus is to provide your business with a professional website for an affordable
+      price with no hassle to you. I create and maintain the site, adding any updates or changes that you need as well
+      as hosting the website and the domain name. I will create you a website that runs and looks great with a focus on
+      user inferfaces and user experience.</p><br>
+    <hr>
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+      <div class="w3-quarter">
+        <i class="fa fa-users w3-margin-bottom w3-jumbo w3-center"></i>
+        <p class="w3-large"><b>User Experience</b></p>
+        <p>This is my #1 priority for every site I create! I make the important information that your customers easy to
+          access, and always focus on user experience and user interface.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-mobile w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large"><b>Mobile</b></p>
+        <p>Over half of all web traffic comes from mobile devices, so it is essential that the site is adaptable for
+          them. I ensure that any user on your site from a mobile browser has just as good of an experience as someone
+          from a computer.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-server w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large"><b>Hosting</b></p>
+        <p>As well as the creation of the website, my service includes the hosting which includes hosting the domain and
+          the website on the internet, so that is accessible by your customers.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-wrench w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large"><b>Support</b></p>
+        <p>During and after website creation I am always available by <a href="#">email</a> to help make any changes you
+          need or to answer any questions you have.</p>
+      </div>
+    </div>
+  </div><br>
+  <div id="the-process" class="w3-container w3-dark-grey horizontal-borders"><br>
+    <div class="w3-card w3-white w3-hover-shadow"
+      style="min-width: 500px; width: 75%; margin: auto; padding: 32px; margin-bottom: 64px; margin-top: 32px;">
+      <h1 class="w3-center">THE PROCESS</h1>
+      <hr>
+      <ol id="process-list">
+        <li>
+          <p>Fill out the <a href="#contact">contact form</a> or send me an email to get in contact.</p>
+        </li>
+        <li>
+          <p>You will be sent a form to fill out with your business information, any pictures, any requests you have,
+            the tabs you want, and other questions about what you want on the site.</p>
+        </li>
+        <li>
+          <p>A prototype for your website and will be created and I will request any additional information I need for
+            the finished product.</p>
+        </li>
+        <li>
+          <p>You will be shown the finished product, and I will make any changes that you request until you are ready
+            for the site to go public.
+        </li>
+        <li>
+          <p>After we find a domain name for your website I will publish it online and at this point it is finished and
+            available to your customers! I am always available to make changes to your site, just send an email with
+            your request and after it is finished I will send you a confirmation email back.</p>
+        </li>
+      </ol><br>
+      <p class="w3-center w3-large">If you have any additional questions about this process please ask! I make it my
+        mission to make building your business's website as easy as possible.</p>
+    </div>
+  </div>
+  </div>
+
+  <!-- something unique -->
+  <div class="w3-container w3-white" style="padding:128px 16px">
+    <div class="w3-row-padding">
+      <div class="w3-col m6">
+        <h3>Currently taking work!</h3>
+        <p>Interested in buying? Check out the standard pricing and send me an email or fill out the form in the Contact
+          section.</p>
+        <p><a href="#work" class="w3-button w3-black"><i class="fa fa-usd"> </i> View Pricing</a></p>
+      </div>
+      <div class="w3-col m6">
+        <img style="float: right;" class="w3-image w3-round-large" src="img/mac.jpg" alt="Image" width="300"
+          height="100">
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="w3-container w3-dark-grey horizontal-borders" style="padding:64px 32px;" id="about">
+    <div class="w3-row-padding w3-grayscale" style="margin-top: 32px; display: inline-block;">
+
+      <div class="w3-card w3-white w3-hover-shadow"
+        style="min-width: 500px; width: 75%; margin: auto; padding: 24px 48px;">
+        <h1 class="w3-center">About Me</h1>
+        <hr><br>
+        <img class="w3-circle" src="img/mac.jpg" alt="Mac" style="width:33%;">
+        <div class="w3-container" style="width: 66%; float: right;">
+          <h2>Nate Carlson</h2>
+          <p class="w3-opacity"><b>Occupation:</b> Full Stack Web Developer</p>
+          <p class="w3-opacity"><b>Education:</b> Studied software engineering at University of Nebraska - Lincoln and
+            an Assossiates Degree in PC and Web Development from Southeast Community College</p>
+        </div>
+        <div class="w3-container">
+          <h4>Most frequently used languages and tools in my development: </h4>
+          <ul style="columns: 2; -webkit-columns: 2; -moz-columns: 2; list-style-type: square; line-height: 1em;">
+            <li>
+              <p>ReactJS</p>
+            </li>
+            <li>
+              <p>HTML/CSS/JS</p>
+            </li>
+            <li>
+              <p>PHP</p>
+            </li>
+            <li>
+              <p>MySQL</p>
+            </li>
+            <li>
+              <p>Java</p>
+            </li>
+            <li>
+              <p>Bootstrap</p>
+            </li>
+            <li>
+              <p>JQuery</p>
+            </li>
+            <li>
+              <p>JSP</p>
+            </li>
+            <li>
+              <p>C#</p>
+            </li>
+          </ul>
+        </div>
+        <hr>
+        <p>I've done many software projects from computer apps to mobile apps to web apps, and I always found myself
+          drifting towards web
+          development, which is where I do most of my work now. I started creating websites when I was bartending, the
+          bar I was working for
+          was in need of one so I made it during downtime when we were slow. After that I began searching around to
+          local
+          websites and noticed how outdated and often times unusable so many local sites were and decided I could do it
+          better, and that is how
+          I began my freelance web development.</p>
+        <p><a href="#contact" class="w3-button w3-black w3-block w3-xlarge"><i class="fa fa-envelope"></i>
+            Contact</button></a></p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Check Banner -->
+  <div id="checkBanner" class="w3-container w3-row w3-center w3-green w3-padding-32">
+    <div class="w3-third w3-xlarge">
+      <span class="fa fa-check w3-jumbo"></span>
+      <br>Great User Experience
+    </div>
+    <div class="w3-third w3-xlarge">
+      <span class="fa fa-check w3-jumbo"></span>
+      <br>No Hassle
+    </div>
+    <div class="w3-third w3-xlarge">
+      <span class="fa fa-check w3-jumbo"></span>
+      <br>Website Online Fast
+    </div>
+  </div>
+
+  <!-- Pricing Section -->
+  <div class="w3-container w3-center w3-dark-grey horizontal-borders" style="padding:64px 0px;" id="pricing">
+    <div id="pricing-list">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xxlarge w3-padding-48">Standard Pricing</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 400</h2>
+          <span class="w3-opacity">Initial site creation</span>
+        </li>
+        <li class="w3-padding-16">Complete and professional website</li>
+        <li class="w3-padding-16">Accessible by both web search and URL</li>
+        <li class="w3-padding-16">Online and finished quickly</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 40</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-padding-16">Website and domain name hosting</li>
+        <li class="w3-padding-16">Available for any necessary changes/updates</li>
+        <li class="w3-padding-16">Full support by email</li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-red w3-padding-large">Contact</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-white" style="padding:32px 64px;" id="contact">
+    <div style="width: 71%; margin: auto;">
+      <h1 class="w3-center w3-xxxlarge">Contact</h1>
+      <hr>
+      <div>
+        <p class="w3-center"><i class="fa fa-envelope fa-fw w3-xlarge"> </i> <span class="w3-xlarge">:
+            <a href="mailto:ncarlson29@gmail.com">nateswebservice@gmail.com</a></span></p>
+        <!-- Contact Form -->
+        <form action="/contactForm.php" target="_blank">
+          <p><input class="w3-input w3-border" type="text" placeholder="Your Name" required name="name"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Your Email" required name="email"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Business Name" required name="businessName"></p>
+          <p><input name="additionalInfo" class="w3-input w3-border" type="text"
+              placeholder="Additional Info (optional)"></p>
+          <p>
+            <button class="w3-button w3-black" type="submit">
+              <i class="fa fa-paper-plane"></i> SUBMIT
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-16">
+    <div class="w3-xlarge w3-section">
+      <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+    </div>
+    <p>website created by <a href="#">nateswebservice.com</a></p>
+  </footer>
+
+  <script>
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+      mySidebar.style.display = "none";
+    }
+  </script>
+</body>
+
+</html>

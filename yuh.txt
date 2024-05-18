@@ -1,0 +1,117 @@
+Daily tasks
+--nateswebservice
+[/] Contact php page working, sends email to me
+[x] About me section design
+[x] About me section implementation
+[/] Social media fillers
+[ ] Finish adding photos and design
+[ ] php web hosting
+
+--ladyluck
+[x] Make images smallers so they load faster
+[ ] Appear on google search
+
+--else
+[ ] Initial fill out form for website
+[ ] Draft email message
+[ ] Business cards
+________________________
+
+This is the bar I worked for as an example
+
+Straight foward pricing
+
+Associates degree in web development from Southeast Community College and studied 
+software engineering at the university of nebraska lincoln
+
+I've done many software projects from computer apps to mobile apps to web apps, and I always found myself drifting towards web 
+development, which is where I do most of my work now. I started creating websites when I was bartending, the bar I was working for 
+was in need of one so I made it during downtime when we were slow. After that I began searching around to local
+websites and noticed how outdated and often times unusable so many local sites were and decided I could do it better, and that is how
+I began my freelance web development.
+
+-PHP -ReactJS -HTML/CSS/JavaScript -JSP -Bootstrap -Java -C#
+
+Currently taking projects at cheap price
+
+specialize in websites for businesses
+
+first google result
+
+compress images make webpage load better
+
+_______________________
+
+twitch advert twitch clips to highlight channels  with twtich name in clip
+
+half off monthly fee when you refer another to use NWS
+
+thanks for your submission i will get back to you asap, fireworks following mouse
+
+_______________________
+
+nate web service website
+
+-What I Offer
+	-A website is an essential part of your business, show what you offer, your hours, location
+in a professional and affordable manner
+	-Web hosting
+	-Domain name
+
+-About
+	-23 Year old full stack web developer from Lincoln, Nebraska
+	-Studied software engineering at University of Nebraska - Lincoln and 
+have an associates degree in PC and Web Development from SCC
+	-w3 card for layout
+-Pricing
+	-Straight foward and up front
+	-$400 initial creation
+	-$40 / month
+
+-Contact
+	-Youtube, email
+	-Form
+		-Name, business name, message
+		-Add a modal for success and take away form from page
+
+______________________
+
+How it works:
+
+Step 1: Initial Submittion
+
+	Business Name:
+
+	Your Name:
+
+	Your Email:
+
+	Business Location:
+
+	Current Website:
+
+	Tabs you want: (Home, about, gallery, menu, hours, contact, location, services)
+		-What should this tab contain? ex: menu
+
+	Your social media links:
+
+	Phone number/email:
+
+	Any pictures that should/could be used
+
+	Anything to add?
+
+I will get back to you soon, with some followup questions/prototype
+
+Follow up questions: business address, hours of operation
+
+__________________________
+
+1 sale = mouse pad
+2 sales = headset
+
+1397779
+
+allo76105
+
+1891397779
