@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Sound Buttons</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="master-container">
+        <div id="button-container"></div>
+        <div id="edit-panel">
+            <label class="switch">
+                <input type="checkbox" id="edit-switch">
+                <span class="slider round"></span>
+            </label>
+            <div id="add-sounds">
+                <div>
+                    DRAG and DROP buttons to change the order or delete the button
+                </div>
+                <div id="trash" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                    Drag here to remove buttons
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="200" height="200">
+                        <path
+                            d="M3 6h18v2H3V6zm2 3h14v13H5V9zm3 2v9h2v-9H8zm4 0v9h2v-9h-2zm4 0v9h2v-9h-2zM9 4V2h6v2h5v2H4V4h5z" />
+                    </svg>
+                </div>
+                <div>
+                    Add new sound buttons by selecting from the options below
+                </div>
+                <h3>Available Sounds</h3>
+                <ul id="all-sounds-list"></ul>
+            </div>
+            <div>1</div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
