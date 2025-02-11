@@ -52,11 +52,27 @@ body,
 html {
     height: 100%;
     line-height: 1.8;
+    overflow-x: hidden;
 }
 
 header {
     width: 100vw;
     height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+header video {
+    position: relative;
+    top: 0;
+    left: 0;
+    /* top: 50%; */
+    /* left: 50%; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* transform: translate(-50%, -50%); */
+    z-index: -1;
 }
 
 footer img {
@@ -109,6 +125,23 @@ footer img {
 
 .main {
     width: 100%;
+    padding: 0 10px;
+}
+
+.service-block {
+    padding: 20px 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.service-block img {
+    margin: 25px;
+    max-width: 400px;
+    transition: all 1s;
+    background-color: rgb(61, 61, 61);
+    padding: 3px;
 }
 
 #pricing {
@@ -142,17 +175,6 @@ footer img {
     -ms-user-drag: none;
     margin-bottom: -2px;
     margin-top: -2px;
-}
-
-header video {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: -1;
 }
 
 h1 {
@@ -215,21 +237,12 @@ h1 {
     color: #2E0014;
 }
 
-.service-block {
-    padding: 20px 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
 .service-block h2 {
     color: black;
 }
 
 .service-block p {
     color: #5f5f5f;
-    font-size: 15;
 }
 
 .service-block hr {
@@ -243,14 +256,6 @@ h1 {
 
 .service-block i {
     margin: 25px;
-}
-
-.service-block img {
-    margin: 25px;
-    max-width: 400px;
-    transition: all 1s;
-    background-color: rgb(61, 61, 61);
-    padding: 3px;
 }
 
 .ad1 {
@@ -330,16 +335,31 @@ h1 {
 
 @media (max-width: 850px) {
     .service-block {
-        padding: 20px 60px;
+        padding: 20px 10px;
+        align-items: flex-start;
+    }
+
+    .service-block div {
+        width: 200px;
     }
 
     .service-block img {
-        max-width: 200px;
+        max-width: 150px;
+        margin-top: 100px;
     }
 
-    .ad1-img {
-        max-width: 200px;
-        max-height: 130px;
-        margin-left: 10px;
+    .service-block h3,
+    .service-block h4 {
+        font-size: 1em;
+        font-weight: bolder;
+    }
+
+    .ad1 {
+        padding: 20px;
+    }
+
+    .ad1 h2 {
+        font-size: 1.5em;
+        font-weight: bolder;
     }
 }
