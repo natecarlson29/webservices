@@ -213,6 +213,17 @@
         });
       }
     </script>
+    <script>
+      //smooth scroll fix
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>
 
     <div class="ad2">
       <div class="flex-row">
