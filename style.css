@@ -113,6 +113,24 @@ footer img {
     padding: 40px;
 }
 
+.head-text {
+    position: relative;
+    bottom: 65%;
+    width: 50%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, .5);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.head-text h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    color: #F18805;
+}
+
 .overlay h1 {
     color: #F0A202;
 }
@@ -364,5 +382,18 @@ h1 {
     .ad1 h2 {
         font-size: 1.5em;
         font-weight: bolder;
+    }
+
+    .head-text {
+        bottom: 80%;
+        width: 90%;
+    }
+
+    .head-text h5 {
+        font-size: 1em;
+    }
+
+    .head-text h1 {
+        font-size: 1.5em;
     }
 }
