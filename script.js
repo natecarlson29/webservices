@@ -64,6 +64,7 @@ function init() {
     create3DText();
     createBoatBow();
     createFishingGear(); // Initialize fishing mechanics
+    preloadFishModelsUnderwater(); // Load all fish models underwater for instant spawning
 
     // Start animation
     animate();
@@ -1038,6 +1039,66 @@ let bassModelCache = null; // Cache the bass model for UI rendering
 let castCount = 0; // Track number of casts
 let contactFormSubmitted = false; // Track if contact form was submitted
 
+// Preloaded fish models stored underwater (hidden from view)
+let preloadedFishModels = {
+    fish1: null,
+    fish2: null,
+    fish3: null,
+    fish4: null,
+    fish5: null
+};
+
+// Preload fish models underwater during initialization
+function preloadFishModelsUnderwater() {
+    const fishModels = {
+        fish1: 'img/bass/scene.gltf',
+        fish2: 'img/bluegill/scene.gltf',
+        fish3: 'img/boot/scene.gltf',
+        fish4: 'img/nemo/scene.gltf',
+        fish5: 'img/shark/scene.gltf'
+    };
+
+    const gltfLoader = new GLTFLoader();
+
+    Object.keys(fishModels).forEach(fishType => {
+        const modelPath = fishModels[fishType];
+
+        gltfLoader.load(modelPath, (gltf) => {
+            const fishModel = gltf.scene;
+
+            // Cache the bass model for UI rendering if not already cached
+            if (fishType === 'fish1' && !bassModelCache) {
+                bassModelCache = gltf.scene.clone();
+            }
+
+            // DON'T scale here - let reelIn() apply the custom scale for each fish type
+            // fishModel.scale.set(0.5, 0.5, 0.5); // REMOVED
+
+            // Enable shadows
+            fishModel.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            // Position far underwater and out of view
+            fishModel.position.set(0, -100, 0);
+            fishModel.visible = false; // Keep invisible until needed
+
+            // Add to scene (but hidden)
+            scene.add(fishModel);
+
+            // Store reference
+            preloadedFishModels[fishType] = fishModel;
+
+            console.log(`${fishType} preloaded underwater`);
+        }, undefined, (error) => {
+            console.error(`Error preloading ${fishType}:`, error);
+        });
+    });
+}
+
 // Create a mini renderer for fish icons
 function renderFishToCanvas(fishModel, width, height) {
     console.log('renderFishToCanvas called with:', fishModel, width, height);
@@ -1375,7 +1436,20 @@ function createFish(fishType, callback) {
         return;
     }
 
-    // Map fish types to their model paths
+    // Use preloaded model if available (instant!)
+    if (preloadedFishModels[fishType]) {
+        console.log(fishType + ' using preloaded model (instant!)');
+        const fishModel = preloadedFishModels[fishType];
+
+        // Make visible and return it
+        fishModel.visible = true;
+
+        if (callback) callback(fishModel);
+        return;
+    }
+
+    // Fallback: Load on-demand if preloading hasn't finished yet
+    console.warn(fishType + ' not preloaded yet, loading now...');
     const fishModels = {
         fish1: 'img/bass/scene.gltf',
         fish2: 'img/bluegill/scene.gltf',
@@ -1560,6 +1634,9 @@ function handleClick() {
         fishingLine.visible = false;
         if (caughtFish) {
             bobber.remove(caughtFish);
+            // Hide the fish and move it back underwater instead of destroying
+            caughtFish.visible = false;
+            caughtFish.position.set(0, -100, 0);
             caughtFish = null;
         }
         fishingState = 'ready';
@@ -1726,6 +1803,9 @@ function updateFishing(time) {
                     fishingLine.visible = false;
                     if (caughtFish) {
                         bobber.remove(caughtFish);
+                        // Hide the fish and move it back underwater instead of destroying
+                        caughtFish.visible = false;
+                        caughtFish.position.set(0, -100, 0);
                         caughtFish = null;
                     }
                     fishingState = 'ready';
