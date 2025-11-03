@@ -1,297 +1,155 @@
 <!DOCTYPE html>
-<html>
-<title>Nate Carlson - Webdev</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="style.css">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico"> -->
+    <title>natecarlson.org</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
-
-  <!-- Navigation -->
-  <div class="w3-top">
-    <div class="w3-bar w3-white w3-card" id="myNavbar">
-      <a href="#home" class="w3-bar-item w3-button w3-wide"><b>NATECARLSON.ORG</b></a>
-      <div class="w3-right w3-hide-small">
-
-        <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-user"></i> INTRO</a>
-        <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-laptop"></i> WORK</a>
-        <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
-      </div>
-      <!-- mobile devices get menu icon instead of links -->
-
-      <a id="mobile-bars" href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
-        onclick="w3_open()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- Mobile device sidebar -->
-  <nav class="mobile-nav w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large"
-    style="display:none" id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="x">×</a>
-    <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-user"></i> INTRO</a>
-    <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-laptop"></i> WORK</a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
-  </nav>
-
-  <!-- Header -->
-  <header id="home">
-    <video id="realvid" autoplay muted loop playsinline class="background-video">
-      <source src="img/vid4small.mp4" type="video/mp4">
-      <img class="no-fade" src="img/mac.jpg" alt="Background image">
-    </video>
-    <div class="head-text">
-      <h1>Nate Carlson - Developer</h1>
-      <h5>Based in <b>Lincoln, NE</b> and with 5+ years of experience in creating and maintaining both larger scale
-        heavy
-        duty web applications and lightweight
-        small pages my main priority is to create a robust and responsive site to provide your users with
-        the
-        information they need using
-        well-designed solutions, combined with high-quality standards, guarantee scalable and robust web applications.
-      </h5>
-    </div>
-    <!-- <div class="overlay">
-      <img class="no-fade" src="img/birds-sky.jpg" style="border-radius: 15px;">
-      <div class="flex-col">
-        <h1>Nate Carlson - Developer</h1>
-        <p>Based in <b>Lincoln, NE</b> and with 5+ years of experience in creating and maintaining both lightweight
-          small pages and larger scale heavy
-          duty web applications my main priority is to create a robust and responsive site to provide your users with
-          the
-          information they need using
-          well-designed solutions, combined with high-quality standards, guarantee scalable and robust web applications.
-        </p>
-        <a href="#work"
-          class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn
-          more</a>
-      </div>
-    </div> -->
-  </header>
-
-  <div class="main">
-
-    <!-- Services -->
-    <div id="work">
-      <div class="flex-col">
-        <div class="service-block">
-          <img src="img/ladyluckbanner.png" alt="laptop">
-          <div>
-            <h3>Custom Landing Pages</h3>
-            <hr />
-            <p>I specialize in creating fully custom landing pages tailored to your business needs. My designs are
-              functionally robust, optimized for performance, and delivered quickly at a low cost,
-              ensuring a seamless user experience.</p>
-            <p style="color: blue"><a target="_blank" href="https://www.natecarlson.org/ladyluck">Example</a></p>
-          </div>
-        </div>
-        <div class="service-block">
-          <div>
-            <h3 style="color: blue"><a target="_blank" href="https://www.aniviagods.net">WWW.ANIVIAGODS.NET</a></h3>
-            <hr />
-            <p>Anivia is a champion in the game League of Legends. Being one of the best Anivia midlaners in the world,
-              I took it upon myself to create a fully automated site for the Anivia community which uses the League of
-              Legends API and node scripts set on a timer to retrieve the builds and playstyles of the most successful
-              players of Anivia accross North America, Europe, and Korea. The site is an easily digestable way to see
-              what items and runes the most successful and highest ranking players are using so you can try them
-              yourself.</p>
-          </div>
-          <img src="img/aniviagods1.png" alt="laptop">
-        </div>
-
-        <div class="service-block">
-          <img src="img/nate3js.png" alt="laptop">
-          <div>
-            <h3>3D Builder</h3>
-            <hr />
-            <p>An environment which uses the 3JS library to display and move around 3D objects in a 3D environment.
-              Using microsoft blob storage to store these models, I can upload and place any 3D object I'd like to this
-              world. Would like to add some functionalities such as user-uploaded models and more options to change the
-              environment plane which is currently just a concrete slab.</p>
-            <p style="color: blue"><a target="_blank" href="https://www.natecarlson.org/3dworld">3D Builder</a></p>
-
-          </div>
-        </div>
-
-        <div class="service-block">
-          <div>
-            <h3>Current Project</h3>
-            <hr />
-            <h4><b>Beatpad Mobile App</b></h4>
-            <p>
-              A lightweight, web based, easy to use beatpad which is made for the purpose of creating beats on the go.
-              Personal passion project I have started after finding that the existing mobile beatpads on the market are
-              overpriced and very unnintuitive to use. This project is currently in the works and will be available for
-              download on the app store and google play store.
-            </p>
-          </div>
-          <img src="img/beatpad1.png" alt="laptop">
-        </div>
-
-        <div class="service-block">
-          <div>
-            <h3>Other Projects</h3>
-            <hr />
-            <h4><b>Projects I no longer host but have created:</b></h4>
-            <ul>
-              <li><b>Old School RuneScape Skill Calculator:</b> This is a website that I wrote for the game Old School
-                Runescape. It connects to the game's API to retrieve stats on the players accounts and then will display
-                to you different ways to train your skills based on the skill you chose and what level you have in that
-                skill.</li>
-              <li><b>Calorie Tracker:</b> Web app made to track protein and calorie consumption. To use it you create an
-                account and then enter in food entries for each meal you eat, meals that you frequently eat can be added
-                to the list of preset options. The data is stored in a database and diplayed to you in your food log.
-              </li>
-              <li><b>Nate's Cocktail HQ:</b> With 2 years of bartending experience this site was created to search up
-                some of the best cocktails I had enjoyed while bartending, with options to search based on ingredients.
-              </li>
-            </ul>
-          </div>
-          <img src="img/osrs-site2.png" alt="laptop">
-        </div>
-      </div>
+    <!-- Loading screen -->
+    <div id="loading">
+        <div class="loading-text">Loading...</div>
     </div>
 
-    <!-- something unique -->
-    <div class="flex-col ad1">
-      <div class="flex-col ad1-text">
-        <h2>I am available for new opportunities!</h2>
-        <p>Interested in a new custom website, or hiring for a larger scale team based project? Send me an <a
-            href="mailto:ncarlson29@gmail.com">Email</a> or fill out the
-          form in the
-          Contact
-          section.</p>
-        <p><a href="#contact" class="w3-button w3-black"><i class="fa fa-envelope"> </i> Get Started</a></p>
-      </div>
-    </div>
+    <!-- Three.js 3D Canvas -->
+    <canvas id="three-canvas"></canvas>
 
-    <!-- Pricing Section -->
-    <div id="pricing">
-      <div id="contact" class="contactCard">
-        <h1 class="">Contact</h1>
-        <hr>
-        </hr>
-        <div id="contact-div">
-          <form class="contactForm" id="contact-form">
-            <p><input class="contactInput" id="name" type="text" placeholder="Name" required name="name"></input>
-            </p>
-            <p><input class="contactInput" id="email" type="text" placeholder="Email" required name="email"></input>
-            </p>
-            <p><input class="contactInput" id="company" type="text" placeholder="Company" required
-                name="company"></input>
-            </p>
-            <textarea class="contactInput" id="message" name="message" type="textarea" placeholder="Message"></textarea>
-            <p><input class="contactSubmit" type="submit" value="Submit" /></p>
-          </form>
+    <!-- Fish Collection Bar -->
+    <div id="fish-collection-bar">
+        <div class="fish-slot" data-fish="fish1">
+            <div class="fish-icon locked">?</div>
+            <div class="fish-count">0</div>
         </div>
-      </div>
-
-      <div class="splitter-container">
-        <img class="no-fade infront splitter" src="orange-splitter.png">
-        <img class="no-fade splitter" src="yellow-splitter.png">
-      </div>
+        <div class="fish-slot" data-fish="fish2">
+            <div class="fish-icon locked">?</div>
+            <div class="fish-count">0</div>
+        </div>
+        <div class="fish-slot" data-fish="fish3">
+            <div class="fish-icon locked">?</div>
+            <div class="fish-count">0</div>
+        </div>
+        <div class="fish-slot" data-fish="fish4">
+            <div class="fish-icon locked">?</div>
+            <div class="fish-count">0</div>
+        </div>
+        <div class="fish-slot" data-fish="fish5">
+            <div class="fish-icon locked">?</div>
+            <div class="fish-count">0</div>
+        </div>
+        <div class="fish-slot" data-fish="contact">
+            <div class="fish-icon locked">?</div>
+            <div class="fish-count">0</div>
+        </div>
     </div>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Fish Modal -->
+    <div id="fish-modal" class="fish-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-fish-name"></h2>
+            <div id="modal-fish-image"></div>
+            <p id="modal-fish-count"></p>
+        </div>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal" class="fish-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-contact-modal">&times;</span>
+            <h2>Contact Form</h2>
+            <div id="contact-div">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company:</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            <div id="contact-success-message" style="display: none;">
+                <p style="color: #4ade80; font-size: 1.5rem; margin: 20px 0;">✓ Form Submitted!</p>
+                <p style="color: #fff;">Thank you for reaching out. I'll get back to you soon.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text Overlay - Hidden, will use 3D text instead -->
+    <div class="text-overlay" style="display: none;">
+        <h1 class="main-text">natecarlson.org</h1>
+    </div>
+
+    <!-- Fishing Rod Overlay - Hidden, now using 3D model -->
+    <div id="fishing-rod" class="fishing-rod" style="display: none;">
+        <svg width="300" height="600" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+            <!-- Fishing Rod -->
+            <line x1="150" y1="500" x2="180" y2="50" stroke="#3d2817" stroke-width="8" stroke-linecap="round" />
+            <line x1="180" y1="50" x2="185" y2="20" stroke="#2d1f12" stroke-width="4" stroke-linecap="round" />
+            <!-- Handle -->
+            <ellipse cx="150" cy="520" rx="25" ry="50" fill="#1a1410" />
+            <!-- Reel -->
+            <circle cx="155" cy="450" r="20" fill="#4a4a4a" stroke="#2a2a2a" stroke-width="2" />
+            <!-- Line guide rings -->
+            <circle cx="175" cy="200" r="8" fill="none" stroke="#666" stroke-width="2" />
+            <circle cx="178" cy="100" r="6" fill="none" stroke="#666" stroke-width="2" />
+        </svg>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <!-- SimplexNoise for terrain generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-      (function () {
-        emailjs.init('AxNy4nzCU6XXWzZXc');
-      })();
-      window.onload = function () {
-        document.getElementById('contact-form').addEventListener('submit', function (event) {
-          event.preventDefault();
-          let params = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            company: document.getElementById("company").value,
-            message: document.getElementById("message").value
-          }
-          // these IDs from the previous steps
-          emailjs.sendForm('service_xqm5e8f', 'template_0ns5dui', this)
-            .then(function () {
-              console.log('SUCCESS!');
-            }, function (error) {
-              console.log('FAILED...', error);
+        (function () {
+            emailjs.init('AxNy4nzCU6XXWzZXc');
+        })();
+        window.addEventListener('load', function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // Send form via EmailJS
+                emailjs.sendForm('service_xqm5e8f', 'template_0ns5dui', this)
+                    .then(function () {
+                        console.log('SUCCESS!');
+                        let formDiv = document.getElementById('contact-div');
+                        formDiv.innerHTML = '<div class="form-submit"><h3 style="color: white;">Message Sent Successfully,<br/> you will hear back ASAP!</h3></div>';
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                        alert('Failed to send message. Please try again.');
+                    });
             });
-
-          let form = document.getElementById('contact-div');
-          form.innerHTML = '<div class="form-submit"><h3>Message Sent Successfully,<br/> you will hear back ASAP!</h3></div>';
         });
-      }
-    </script>
-    <script>
-      //smooth scroll fix
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
-        });
-      });
     </script>
 
-    <div class="ad2">
-      <div class="flex-row">
-        <div>
-          <span class="fa fa-check w3-jumbo"></span>
-          <br>Get Online Fast
-        </div>
-        <div>
-          <span class="fa fa-check w3-jumbo"></span>
-          <br>Easy Onboarding
-        </div>
-        <div>
-          <span class="fa fa-check w3-jumbo"></span>
-          <br>Unlimited Updates
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Footer -->
-  <footer class="w3-center w3-black w3-padding-16">
-    <div>
-      <img src="img/bird.webp">
-    </div>
-    <p>&copy; 2025 natecarlson.org</p>
-  </footer>
-
-  <script>
-    //always close mobile menu on click away
-    window.addEventListener('click', function (event) {
-      let targetElement = event.target;
-      if (targetElement.id !== 'mobile-bars' && targetElement.parentElement.id !== 'mobile-bars') {
-        w3_close();
-      }
-    })
-
-    // Toggle between showing and hiding the sidebar when clicking the menu icon
-    var mySidebar = document.getElementById("mySidebar");
-
-    function w3_open() {
-      mySidebar.classList.remove('hide');
-      if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-      } else {
-        mySidebar.style.display = 'block';
-      }
-    }
-
-    // Close the sidebar with the close button
-    function w3_close() {
-      mySidebar.classList.add('hide');
-      setTimeout(function () {
-        mySidebar.style.display = 'none';
-      }, 500);
-    }
-  </script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
