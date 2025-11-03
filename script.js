@@ -1468,6 +1468,14 @@ function createFish(fishType, callback) {
         console.log(fishType + ' using preloaded model (instant!)');
         const fishModel = preloadedModels[fishType].clone(true); // Deep clone
 
+        // Re-enable shadows on cloned model (clone doesn't always preserve these)
+        fishModel.traverse((child) => {
+            if (child.isMesh) {
+                child.castShadow = true;
+                child.receiveShadow = true;
+            }
+        });
+
         // Scale and position the model appropriately
         fishModel.scale.set(0.5, 0.5, 0.5);
 
