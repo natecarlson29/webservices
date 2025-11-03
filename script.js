@@ -65,14 +65,18 @@ function init() {
     createBoatBow();
     createFishingGear(); // Initialize fishing mechanics
 
-    // Start animation
-    animate();
+    // Preload all fish models before starting the game
+    preloadFishModels(() => {
+        console.log('All models preloaded, hiding loading screen');
+        // Hide loading screen after models are loaded
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            loading.classList.add('hidden');
+        }, 500);
+    });
 
-    // Hide loading screen
-    setTimeout(() => {
-        const loading = document.getElementById('loading');
-        loading.classList.add('hidden');
-    }, 500);
+    // Start animation immediately (loading screen will hide when models are ready)
+    animate();
 }
 
 // Lighting setup - Sunset atmosphere
@@ -1038,6 +1042,90 @@ let bassModelCache = null; // Cache the bass model for UI rendering
 let castCount = 0; // Track number of casts
 let contactFormSubmitted = false; // Track if contact form was submitted
 
+// Preloaded fish models cache
+let preloadedModels = {
+    fish1: null,
+    fish2: null,
+    fish3: null,
+    fish4: null,
+    fish5: null
+};
+
+// Preload all fish models during loading screen
+function preloadFishModels(onComplete) {
+    const fishModels = {
+        fish1: 'img/bass/scene.gltf',
+        fish2: 'img/bluegill/scene.gltf',
+        fish3: 'img/boot/scene.gltf',
+        fish4: 'img/nemo/scene.gltf',
+        fish5: 'img/shark/scene.gltf'
+    };
+
+    const gltfLoader = new GLTFLoader();
+    const modelKeys = Object.keys(fishModels);
+    let loadedCount = 0;
+    const totalModels = modelKeys.length;
+
+    console.log('Starting to preload', totalModels, 'fish models...');
+
+    modelKeys.forEach(fishType => {
+        const modelPath = fishModels[fishType];
+
+        gltfLoader.load(
+            modelPath,
+            (gltf) => {
+                // Store the loaded model
+                preloadedModels[fishType] = gltf.scene;
+
+                // Enable shadows on preloaded model
+                preloadedModels[fishType].traverse((child) => {
+                    if (child.isMesh) {
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                    }
+                });
+
+                loadedCount++;
+                console.log(`Loaded ${fishType} (${loadedCount}/${totalModels})`);
+
+                // Update loading progress
+                const progress = (loadedCount / totalModels) * 100;
+                const loadingText = document.querySelector('.loading-text');
+                if (loadingText) {
+                    loadingText.textContent = `Loading... ${Math.round(progress)}%`;
+                }
+
+                // Cache bass model for UI rendering
+                if (fishType === 'fish1') {
+                    bassModelCache = gltf.scene.clone();
+                }
+
+                // All models loaded
+                if (loadedCount === totalModels) {
+                    console.log('All fish models preloaded successfully!');
+                    if (onComplete) onComplete();
+                }
+            },
+            (progress) => {
+                // Optional: track individual file loading progress
+                if (progress.total > 0) {
+                    const fileProgress = (progress.loaded / progress.total * 100);
+                    console.log(`${fishType}: ${Math.round(fileProgress)}%`);
+                }
+            },
+            (error) => {
+                console.error(`Error loading ${fishType}:`, error);
+                loadedCount++;
+                // Continue even if one model fails
+                if (loadedCount === totalModels) {
+                    console.log('Model preloading complete (with errors)');
+                    if (onComplete) onComplete();
+                }
+            }
+        );
+    });
+}
+
 // Create a mini renderer for fish icons
 function renderFishToCanvas(fishModel, width, height) {
     console.log('renderFishToCanvas called with:', fishModel, width, height);
@@ -1375,7 +1463,20 @@ function createFish(fishType, callback) {
         return;
     }
 
-    // Map fish types to their model paths
+    // Use preloaded model if available
+    if (preloadedModels[fishType]) {
+        console.log(fishType + ' using preloaded model (instant!)');
+        const fishModel = preloadedModels[fishType].clone(true); // Deep clone
+
+        // Scale and position the model appropriately
+        fishModel.scale.set(0.5, 0.5, 0.5);
+
+        if (callback) callback(fishModel);
+        return;
+    }
+
+    // Fallback: Load on-demand if preloading failed or model not found
+    console.warn(fishType + ' not preloaded, loading now...');
     const fishModels = {
         fish1: 'img/bass/scene.gltf',
         fish2: 'img/bluegill/scene.gltf',
