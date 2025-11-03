@@ -1574,7 +1574,7 @@ function handleClick() {
     }
 }
 
-// Add click listener
+// Add click and touch listeners for mobile support
 window.addEventListener('click', handleClick);
 window.addEventListener('touchend', (e) => {
     // Prevent default to avoid double-firing with click event
@@ -1878,6 +1878,20 @@ document.querySelectorAll('.fish-slot').forEach(slot => {
             }
         }
     });
+    slot.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // Prevent touch from casting/reeling
+        const fishType = slot.dataset.fish;
+        const catchCount = fishCollection[fishType];
+
+        if (catchCount > 0) {
+            if (fishType === 'contact') {
+                showContactModal();
+            } else {
+                showFishModal(fishType, catchCount);
+            }
+        }
+    });
 });
 
 // Show fish modal
@@ -2039,6 +2053,11 @@ function setupModalEventListeners() {
             e.stopPropagation();
             fishModal.style.display = 'none';
         });
+        fishModalClose.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            fishModal.style.display = 'none';
+        });
     }
 
     if (fishModal) {
@@ -2048,10 +2067,21 @@ function setupModalEventListeners() {
                 fishModal.style.display = 'none';
             }
         });
+        fishModal.addEventListener('touchend', (e) => {
+            e.stopPropagation();
+            if (e.target.id === 'fish-modal') {
+                e.preventDefault();
+                fishModal.style.display = 'none';
+            }
+        });
     }
 
     if (fishModalContent) {
         fishModalContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        fishModalContent.addEventListener('touchend', (e) => {
+            e.preventDefault();
             e.stopPropagation();
         });
     }
@@ -2066,6 +2096,11 @@ function setupModalEventListeners() {
             e.stopPropagation();
             contactModal.style.display = 'none';
         });
+        contactModalClose.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            contactModal.style.display = 'none';
+        });
     }
 
     if (contactModal) {
@@ -2075,10 +2110,21 @@ function setupModalEventListeners() {
                 contactModal.style.display = 'none';
             }
         });
+        contactModal.addEventListener('touchend', (e) => {
+            e.stopPropagation();
+            if (e.target.id === 'contact-modal') {
+                e.preventDefault();
+                contactModal.style.display = 'none';
+            }
+        });
     }
 
     if (contactModalContent) {
         contactModalContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        contactModalContent.addEventListener('touchend', (e) => {
+            e.preventDefault();
             e.stopPropagation();
         });
     }
