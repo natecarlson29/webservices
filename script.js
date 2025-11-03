@@ -69,11 +69,7 @@ function init() {
     // Start animation
     animate();
 
-    // Hide loading screen
-    setTimeout(() => {
-        const loading = document.getElementById('loading');
-        loading.classList.add('hidden');
-    }, 500);
+    // Loading screen will be hidden by checkAllAssetsLoaded() when boat, rod, and all fish are loaded
 }
 
 // Lighting setup - Sunset atmosphere
@@ -774,6 +770,10 @@ function createBoatBow() {
 
             scene.add(boatBow);
 
+            // Mark boat as loaded
+            loadingTracker.boat = true;
+            checkAllAssetsLoaded();
+
             // After adding to scene, check actual position
             setTimeout(() => {
                 const box = new THREE.Box3().setFromObject(boatBow);
@@ -787,6 +787,9 @@ function createBoatBow() {
         },
         function (error) {
             console.error('Error loading boat model:', error);
+            // Mark as loaded even on error so loading screen doesn't hang
+            loadingTracker.boat = true;
+            checkAllAssetsLoaded();
         }
     );
 }
@@ -1039,6 +1042,43 @@ let bassModelCache = null; // Cache the bass model for UI rendering
 let castCount = 0; // Track number of casts
 let contactFormSubmitted = false; // Track if contact form was submitted
 
+// Loading tracker for all critical assets
+let loadingTracker = {
+    boat: false,
+    rod: false,
+    fish1: false,
+    fish2: false,
+    fish3: false,
+    fish4: false,
+    fish5: false
+};
+
+// Check if all assets are loaded
+function checkAllAssetsLoaded() {
+    const allLoaded = Object.values(loadingTracker).every(loaded => loaded);
+    if (allLoaded) {
+        console.log('All critical assets loaded!');
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            if (loading) {
+                loading.classList.add('hidden');
+            }
+        }, 500);
+    } else {
+        const loadedCount = Object.values(loadingTracker).filter(v => v).length;
+        const totalCount = Object.keys(loadingTracker).length;
+        // Log for debugging, but don't show count to users
+        console.log(`Loading progress: ${loadedCount}/${totalCount} assets loaded`);
+
+        // Update loading text with just percentage
+        const loadingText = document.querySelector('.loading-text');
+        if (loadingText) {
+            const percentage = Math.round((loadedCount / totalCount) * 100);
+            loadingText.textContent = `Loading... ${percentage}%`;
+        }
+    }
+}
+
 // Preloaded fish models stored underwater (hidden from view)
 let preloadedFishModels = {
     fish1: null,
@@ -1092,9 +1132,16 @@ function preloadFishModelsUnderwater() {
             // Store reference
             preloadedFishModels[fishType] = fishModel;
 
+            // Mark as loaded
+            loadingTracker[fishType] = true;
+            checkAllAssetsLoaded();
+
             console.log(`${fishType} preloaded underwater`);
         }, undefined, (error) => {
             console.error(`Error preloading ${fishType}:`, error);
+            // Mark as loaded even on error so loading screen doesn't hang
+            loadingTracker[fishType] = true;
+            checkAllAssetsLoaded();
         });
     });
 }
@@ -1247,8 +1294,15 @@ function createFishingGear() {
         console.log('Fishing rod loaded at position:', fishingRod3D.position);
         console.log('Fishing rod rotation:', fishingRod3D.rotation);
         console.log('Fishing rod scale:', fishingRod3D.scale);
+
+        // Mark rod as loaded
+        loadingTracker.rod = true;
+        checkAllAssetsLoaded();
     }, undefined, (error) => {
         console.error('Error loading fishing rod:', error);
+        // Mark as loaded even on error so loading screen doesn't hang
+        loadingTracker.rod = true;
+        checkAllAssetsLoaded();
     });
 
     // Bobber (red and white float)
