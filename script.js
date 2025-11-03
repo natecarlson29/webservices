@@ -1074,11 +1074,11 @@ function preloadFishModels(onComplete) {
         gltfLoader.load(
             modelPath,
             (gltf) => {
-                // Store the loaded model
-                preloadedModels[fishType] = gltf.scene;
+                // Store the ENTIRE gltf object (not just scene) to preserve materials/textures
+                preloadedModels[fishType] = gltf;
 
-                // Enable shadows on preloaded model
-                preloadedModels[fishType].traverse((child) => {
+                // Enable shadows on the scene
+                gltf.scene.traverse((child) => {
                     if (child.isMesh) {
                         child.castShadow = true;
                         child.receiveShadow = true;
@@ -1097,7 +1097,7 @@ function preloadFishModels(onComplete) {
 
                 // Cache bass model for UI rendering
                 if (fishType === 'fish1') {
-                    bassModelCache = gltf.scene.clone();
+                    bassModelCache = gltf.scene.clone(true);
                 }
 
                 // All models loaded
@@ -1124,9 +1124,7 @@ function preloadFishModels(onComplete) {
             }
         );
     });
-}
-
-// Create a mini renderer for fish icons
+}// Create a mini renderer for fish icons
 function renderFishToCanvas(fishModel, width, height) {
     console.log('renderFishToCanvas called with:', fishModel, width, height);
 
@@ -1466,11 +1464,22 @@ function createFish(fishType, callback) {
     // Use preloaded model if available
     if (preloadedModels[fishType]) {
         console.log(fishType + ' using preloaded model (instant!)');
-        const fishModel = preloadedModels[fishType].clone(true); // Deep clone
 
-        // Re-enable shadows on cloned model (clone doesn't always preserve these)
+        // Clone the scene from the preloaded GLTF
+        const fishModel = preloadedModels[fishType].scene.clone(true);
+
+        // Deep clone materials to avoid sharing issues
         fishModel.traverse((child) => {
             if (child.isMesh) {
+                // Clone material to avoid texture/material conflicts
+                if (child.material) {
+                    if (Array.isArray(child.material)) {
+                        child.material = child.material.map(mat => mat.clone());
+                    } else {
+                        child.material = child.material.clone();
+                    }
+                }
+                // Re-enable shadows
                 child.castShadow = true;
                 child.receiveShadow = true;
             }
