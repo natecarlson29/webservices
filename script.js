@@ -1576,6 +1576,11 @@ function handleClick() {
 
 // Add click listener
 window.addEventListener('click', handleClick);
+window.addEventListener('touchend', (e) => {
+    // Prevent default to avoid double-firing with click event
+    e.preventDefault();
+    handleClick(e);
+});
 
 // Update fishing animation in main loop
 function updateFishing(time) {
