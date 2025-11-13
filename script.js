@@ -1688,6 +1688,10 @@ function handleClick() {
         fishingLine.visible = false;
         if (caughtFish) {
             bobber.remove(caughtFish);
+            // Clear the flag so this fish can be counted again next time
+            if (caughtFish.userData) {
+                caughtFish.userData.addedToCollection = false;
+            }
             // Hide the fish and move it back underwater instead of destroying
             caughtFish.visible = false;
             caughtFish.position.set(0, -100, 0);
@@ -1857,6 +1861,10 @@ function updateFishing(time) {
                     fishingLine.visible = false;
                     if (caughtFish) {
                         bobber.remove(caughtFish);
+                        // Clear the flag so this fish can be counted again next time
+                        if (caughtFish.userData) {
+                            caughtFish.userData.addedToCollection = false;
+                        }
                         // Hide the fish and move it back underwater instead of destroying
                         caughtFish.visible = false;
                         caughtFish.position.set(0, -100, 0);
